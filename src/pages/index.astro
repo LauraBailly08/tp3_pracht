@@ -22,29 +22,41 @@ const scatterPlotOptions = {
       <PlotFigure options={scatterPlotOptions} />
     </div>
 
-    <!-- Cartes de navigation TP2 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Cartes de navigation TP -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <a 
         href="/species/Adelie" 
-        class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all group block"
+        class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all group block"
       >
-        <h2 class="text-xl font-bold text-slate-800 group-hover:text-blue-600 transition-colors mb-2">
+        <h2 class="text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors mb-2">
           Navigation par Espèce
         </h2>
         <p class="text-sm text-slate-500 leading-relaxed">
-          Explorez les graphiques filtrés individuellement via notre composant réutilisable.
+          Menu déroulant select pour afficher chaque espèce.
         </p>
       </a>
 
       <a 
         href="/species-slider" 
-        class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all group block"
+        class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all group block"
       >
-        <h2 class="text-xl font-bold text-slate-800 group-hover:text-blue-600 transition-colors mb-2">
+        <h2 class="text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors mb-2">
           Vue Slider Interactive
         </h2>
         <p class="text-sm text-slate-500 leading-relaxed">
-          Testez le défilement horizontal fluide et l'Intersection Observer.
+          Défilement par ancres et synchronisation select.
+        </p>
+      </a>
+
+      <a 
+        href="/species-tabs" 
+        class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all group block"
+      >
+        <h2 class="text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors mb-2">
+          Vue Onglets (Tabs)
+        </h2>
+        <p class="text-sm text-slate-500 leading-relaxed">
+          Composant accessible avec WAI-ARIA et Tailwind.
         </p>
       </a>
     </div>

@@ -21,7 +21,6 @@ const pathname = new URL(Astro.request.url).pathname;
       >
         Par espèce
       </a>
-    
       <a 
         href="/species-slider" 
         class={`hover:text-white transition-colors ${pathname.includes('slider') ? 'text-white border-b-2 border-blue-500 pb-1 font-semibold' : 'text-slate-400'}`}
@@ -29,11 +28,17 @@ const pathname = new URL(Astro.request.url).pathname;
         Vue Slider
       </a>
       <a 
-  href="/chaises" 
-  class={`hover:text-white transition-colors ${pathname.includes('chaises') ? 'text-white border-b-2 border-blue-500 pb-1 font-semibold' : 'text-slate-400'}`}
->
-  Chaises
-</a>
+        href="/species-tabs" 
+        class={`hover:text-white transition-colors ${pathname.includes('tabs') ? 'text-white border-b-2 border-blue-500 pb-1 font-semibold' : 'text-slate-400'}`}
+      >
+        Vue Onglets
+      </a>
+      <a 
+        href="/chaises" 
+        class={`hover:text-white transition-colors ${pathname.includes('chaises') ? 'text-white border-b-2 border-blue-500 pb-1 font-semibold' : 'text-slate-400'}`}
+      >
+        Chaises
+      </a>
     </nav>
   </div>
 </header>

@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GraphicSpecies from "../components/GraphicSpecies.astro";
+import { Tabs, TabsList, TabsTab, TabsPanel } from "accessible-astro-components";
+---
+
+<Layout title="Vue Onglets (Tabs) - data.laura">
+  <div class="max-w-5xl mx-auto space-y-6">
+    <!-- En-tête de la page -->
+    <div class="flex justify-between items-center border-b border-slate-200 pb-4">
+      <h1 class="text-2xl font-bold text-slate-800">Comparaison par Onglets (Accessible Astro Tabs)</h1>
+      <a href="/" class="text-sm text-slate-400 hover:text-slate-600 transition-colors">
+        &larr; Accueil
+      </a>
+    </div>
+
+    <p class="text-slate-600 text-sm">
+      Navigation par onglets accessible avec support clavier (flèches gauche/droite, touche tab) et gestion ARIA.
+    </p>
+
+    <!-- Composant Accessible Astro Tabs avec classes Tailwind ! et aria-selected: -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+      <Tabs>
+        <TabsList class="!flex !gap-3 !border-b !border-slate-200 !pb-3 !mb-6 !list-none !p-0">
+          <TabsTab 
+            id="tab-adelie" 
+            controls="panel-adelie" 
+            selected
+            class="!px-5 !py-2.5 !rounded-lg !text-sm !font-medium !transition-all !cursor-pointer !border-none !bg-slate-100 !text-slate-700 hover:!bg-slate-200 aria-selected:!bg-blue-600 aria-selected:!text-white aria-selected:!font-bold aria-selected:!shadow-md"
+          >
+            Adelie
+          </TabsTab>
+          <TabsTab 
+            id="tab-gentoo" 
+            controls="panel-gentoo"
+            class="!px-5 !py-2.5 !rounded-lg !text-sm !font-medium !transition-all !cursor-pointer !border-none !bg-slate-100 !text-slate-700 hover:!bg-slate-200 aria-selected:!bg-blue-600 aria-selected:!text-white aria-selected:!font-bold aria-selected:!shadow-md"
+          >
+            Gentoo
+          </TabsTab>
+          <TabsTab 
+            id="tab-chinstrap" 
+            controls="panel-chinstrap"
+            class="!px-5 !py-2.5 !rounded-lg !text-sm !font-medium !transition-all !cursor-pointer !border-none !bg-slate-100 !text-slate-700 hover:!bg-slate-200 aria-selected:!bg-blue-600 aria-selected:!text-white aria-selected:!font-bold aria-selected:!shadow-md"
+          >
+            Chinstrap
+          </TabsTab>
+        </TabsList>
+
+        <TabsPanel id="panel-adelie" labelledby="tab-adelie" selected class="!mt-4">
+          <GraphicSpecies species="Adelie" />
+        </TabsPanel>
+        <TabsPanel id="panel-gentoo" labelledby="tab-gentoo" class="!mt-4">
+          <GraphicSpecies species="Gentoo" />
+        </TabsPanel>
+        <TabsPanel id="panel-chinstrap" labelledby="tab-chinstrap" class="!mt-4">
+          <GraphicSpecies species="Chinstrap" />
+        </TabsPanel>
+      </Tabs>
+    </div>
+  </div>
+</Layout>
+
