@@ -2,26 +2,6 @@
 const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-8">
-  <div class="flex gap-6 text-sm font-medium">
-    <a 
-      href="/species/Adelie" 
-      class={`pb-2 transition-all ${pathname.includes('Adelie') ? 'border-b-2 border-blue-600 text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-800'}`}
-    >
-      Adelie
-    </a>
-    <a 
-      href="/species/Gentoo" 
-      class={`pb-2 transition-all ${pathname.includes('Gentoo') ? 'border-b-2 border-blue-600 text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-800'}`}
-    >
-      Gentoo
-    </a>
-    <a 
-      href="/species/Chinstrap" 
-      class={`pb-2 transition-all ${pathname.includes('Chinstrap') ? 'border-b-2 border-blue-600 text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-800'}`}
-    >
-      Chinstrap
-    </a>
 <div class="flex justify-between items-center border-b border-slate-200 pb-4 mb-8">
   <div class="flex items-center gap-3">
     <label for="species" class="text-sm font-medium text-slate-700">Choisir une espèce :</label>
