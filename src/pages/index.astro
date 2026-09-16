@@ -1,21 +1,52 @@
 ---
-import PlotFigure from "../components/PlotFigure.astro";
-import Layout from "../layouts/Layout.astro";
 import * as Plot from "@observablehq/plot";
-import penguins from "../assets/penguins.json";
+import Layout from '../layouts/Layout.astro';
+import PlotFigure from '../components/PlotFigure.astro';
+import penguins from '../data/penguins.json';
+
+const scatterPlotOptions = {
+  title: "Distribution de la masse des penguins",
+  ariaLabel: "Nuage de points de la masse des penguins",
+  grid: true,
+  marks: [
+    Plot.dot(penguins, { x: "flipper_length_mm", y: "body_mass_g", stroke: "species", tip: true })
+  ]
+};
 ---
 
-<Layout>
-  <h1 class="text-2xl">Test Astro et Plot (Observablehq)</h1>
-  <PlotFigure
-    options={{
-      marks: [
-        Plot.dot(penguins, {
-          x: "culmen_length_mm",
-          y: "culmen_depth_mm",
-          stroke: "species",
-        }),
-      ],
-    }}
-  />
+<Layout title="Masse des penguins" activePage="home">
+  <div class="max-w-5xl mx-auto space-y-8">
+    <!-- Section Graphique principal -->
+    <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+      <h1 class="text-2xl font-bold text-slate-800 mb-4">Masse et nageoires des penguins</h1>
+      <PlotFigure options={scatterPlotOptions} />
+    </div>
+
+    <!-- Cartes de navigation TP2 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <a 
+        href="/species/Adelie" 
+        class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all group block"
+      >
+        <h2 class="text-xl font-bold text-slate-800 group-hover:text-blue-600 transition-colors mb-2">
+          Navigation par Espèce
+        </h2>
+        <p class="text-sm text-slate-500 leading-relaxed">
+          Explorez les graphiques filtrés individuellement via notre composant réutilisable.
+        </p>
+      </a>
+
+      <a 
+        href="/species-slider" 
+        class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all group block"
+      >
+        <h2 class="text-xl font-bold text-slate-800 group-hover:text-blue-600 transition-colors mb-2">
+          Vue Slider Interactive
+        </h2>
+        <p class="text-sm text-slate-500 leading-relaxed">
+          Testez le défilement horizontal fluide et l'Intersection Observer.
+        </p>
+      </a>
+    </div>
+  </div>
 </Layout>

@@ -1,0 +1,20 @@
+---
+import * as Plot from "@observablehq/plot";
+import Layout from '../layouts/Layout.astro';
+import PlotFigure from '../components/PlotFigure.astro';
+import penguins from '../data/penguins.json';
+
+const histogramOptions = {
+  title: "Distribution de la longueur du bec",
+  ariaLabel: "Histogramme de la longueur du bec des manchots",
+  marks: [
+    Plot.rectY(penguins, Plot.binX({ y: "count" }, { x: "culmen_length_mm", fill: "species" })),
+    Plot.ruleY([0])
+  ]
+};
+---
+
+<Layout title="Longueur des becs" activePage="becs">
+  <h1>Longueur des becs</h1>
+  <PlotFigure options={histogramOptions} />
+</Layout>

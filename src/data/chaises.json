@@ -1,0 +1,12 @@
+[
+  { "nom": "ErgoChair Pro", "marque": "Autonomous", "prix": 499, "noteErgonomie": 8.5, "poidsMaxKg": 130 },
+  { "nom": "Aeron", "marque": "Herman Miller", "prix": 1450, "noteErgonomie": 9.8, "poidsMaxKg": 150 },
+  { "nom": "Gesture", "marque": "Steelcase", "prix": 1200, "noteErgonomie": 9.5, "poidsMaxKg": 180 },
+  { "nom": "MARKUS", "marque": "IKEA", "prix": 179, "noteErgonomie": 6.5, "poidsMaxKg": 110 },
+  { "nom": "MATCHSPELL", "marque": "IKEA", "prix": 199, "noteErgonomie": 7.0, "poidsMaxKg": 110 },
+  { "nom": "Capisco", "marque": "HÅG", "prix": 850, "noteErgonomie": 8.8, "poidsMaxKg": 120 },
+  { "nom": "HERO", "marque": "Noblechairs", "prix": 420, "noteErgonomie": 7.2, "poidsMaxKg": 150 },
+  { "nom": "BackFORCE One", "marque": "Backforce", "prix": 500, "noteErgonomie": 8.0, "poidsMaxKg": 130 },
+  { "nom": "Kinesit", "marque": "Arper", "prix": 680, "noteErgonomie": 7.8, "poidsMaxKg": 120 },
+  { "nom": "Freedom", "marque": "Humanscale", "prix": 1100, "noteErgonomie": 9.0, "poidsMaxKg": 135 }
+]

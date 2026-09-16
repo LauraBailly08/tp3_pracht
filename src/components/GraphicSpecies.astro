@@ -1,0 +1,37 @@
+---
+import * as Plot from "@observablehq/plot";
+import PlotFigure from "./PlotFigure.astro";
+import penguins from "../data/penguins.json";
+
+const { species } = Astro.props;
+
+// Filtrage des données selon l'espèce
+const filteredPenguins = penguins.filter((p) => p.species === species);
+
+// Graphique principal : Masse vs Nageoires + Courbe de régression
+const optionsMain = {
+  title: `Penguins ${species} - Masse vs Nageoires`,
+  grid: true,
+  x: { label: "Longueur nageoire (mm)" },
+  y: { label: "Masse corporelle (g)" },
+  marks: [
+    Plot.dot(filteredPenguins, {
+      x: "flipper_length_mm",
+      y: "body_mass_g",
+      fill: "sex",
+      r: 5,
+      tip: true,
+    }),
+    Plot.linearRegressionY(filteredPenguins, {
+      x: "flipper_length_mm",
+      y: "body_mass_g",
+      stroke: "#ec4899",
+      strokeWidth: 2,
+    }),
+  ],
+};
+---
+
+<div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+  <PlotFigure options={optionsMain} />
+</div>
