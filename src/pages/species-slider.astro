@@ -18,6 +18,12 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
       <a 
         href="#adelie" 
         class="menu-item px-4 py-1.5 rounded-md text-sm font-medium text-slate-600 hover:text-slate-900 transition-all [.active]:bg-red-100 [.active]:text-red-600 [.active]:font-semibold"
+    <!-- Menu select d'ancres fixe et centré -->
+    <div class="sticky top-4 z-20 flex justify-center items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-xl shadow-sm border border-slate-200 mb-8 w-fit mx-auto">
+      <label for="species-select" class="text-sm font-medium text-slate-700">Espèce (ancre) :</label>
+      <select 
+        id="species-select" 
+        class="px-3 py-1.5 border border-slate-300 rounded-lg text-sm bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         Adelie
       </a>
@@ -34,6 +40,11 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
         Chinstrap
       </a>
     </nav>
+        <option value="adelie">Adelie</option>
+        <option value="gentoo">Gentoo</option>
+        <option value="chinstrap">Chinstrap</option>
+      </select>
+    </div>
 
     <!-- Slider CSS horizontal -->
     <div class="flex overflow-x-auto snap-x snap-mandatory gap-8 scroll-smooth pb-8 w-full">
@@ -52,6 +63,13 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
 
 <script>
   const menuItems = document.querySelectorAll(".menu-item");
+  const select = document.querySelector("#species-select") as HTMLSelectElement;
+
+  select?.addEventListener("change", (evt) => {
+    const value = (evt.target as HTMLSelectElement).value;
+    location.hash = value;
+  });
+
   const items = document.querySelectorAll(".item");
 
   console.log("menuItems", menuItems);
@@ -67,6 +85,11 @@ import GraphicSpecies from "../components/GraphicSpecies.astro";
           menuItem?.classList.add("active");
         } else {
           menuItem?.classList.remove("active");
+        if (entry.isIntersecting && select) {
+          const id = entry.target.getAttribute("id");
+          if (id) {
+            select.value = id;
+          }
         }
       });
     },
